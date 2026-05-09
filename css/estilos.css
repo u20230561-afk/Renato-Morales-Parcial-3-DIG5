@@ -1,0 +1,202 @@
+/* =========================================
+   VARIABLES Y RESET
+   ========================================= */
+:root {
+    --black: #000000;
+    --red-main: #ff0000;
+    --red-dark: #8b0000;
+    --white: #ffffff;
+    --brutalist-shadow: 8px 8px 0px 0px rgba(255, 0, 0, 0.8);
+}
+
+body {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: 'Space Grotesk', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .navbar-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   EFECTOS DE FONDO (RUIDO Y RAYOS)
+   ========================================= */
+.noise-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('https://grainy-gradients.vercel.app/noise.svg'); /* Ruido procedural */
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.lightning-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, var(--red-dark) 0%, transparent 70%);
+    opacity: 0.2;
+    animation: lightningMove 10s infinite alternate;
+    z-index: -1;
+}
+
+@keyframes lightningMove {
+    0% { transform: scale(1) translate(0, 0); opacity: 0.2; }
+    50% { opacity: 0.4; }
+    100% { transform: scale(1.5) translate(5%, 5%); opacity: 0.1; }
+}
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+.navbar {
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 3px solid var(--red-main);
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    color: var(--red-main) !important;
+}
+
+.nav-link {
+    color: var(--white) !important;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--red-main) !important;
+    transform: skewX(-10deg);
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+#hero {
+    padding-top: 100px;
+    min-height: 80vh;
+}
+
+.main-title {
+    font-size: 8rem;
+    line-height: 0.8;
+}
+
+.text-red {
+    color: var(--red-main);
+    text-shadow: 5px 5px 0px var(--white);
+}
+
+.lead-text {
+    font-size: 1.5rem;
+    border-left: 5px solid var(--red-main);
+    padding-left: 20px;
+    margin: 30px 0;
+}
+
+/* IMAGEN INTERACTIVA */
+.image-container {
+    padding: 20px;
+    background: var(--red-main);
+    box-shadow: 15px 15px 0px var(--white);
+    transition: transform 0.3s;
+}
+
+.image-container:hover {
+    transform: scale(0.98);
+    box-shadow: -15px -15px 0px var(--white);
+}
+
+.profile-img {
+    filter: grayscale(100%) contrast(120%);
+    mix-blend-mode: multiply;
+}
+
+/* =========================================
+   BOTONES BRUTALISTAS
+   ========================================= */
+.btn-brutalist-red {
+    background: var(--red-main);
+    color: white;
+    border: 3px solid var(--white);
+    border-radius: 0;
+    font-family: 'Bebas Neue';
+    font-size: 1.5rem;
+    padding: 10px 40px;
+    box-shadow: var(--brutalist-shadow);
+    transition: all 0.2s;
+}
+
+.btn-brutalist-red:hover {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px var(--red-main);
+    background: var(--white);
+    color: var(--red-main);
+}
+
+.btn-brutalist-outline {
+    background: transparent;
+    color: white;
+    border: 3px solid var(--white);
+    border-radius: 0;
+    margin-left: 20px;
+}
+
+/* =========================================
+   TARJETAS Y SKILLS
+   ========================================= */
+.skill-box {
+    padding: 40px;
+    transition: background 0.3s;
+}
+
+.skill-box:hover {
+    background: rgba(255, 0, 0, 0.1);
+}
+
+.brutalist-card {
+    background: #111;
+    border: 2px solid var(--white);
+    border-radius: 0;
+    transition: all 0.3s;
+}
+
+.brutalist-card:hover {
+    border-color: var(--red-main);
+    transform: translateY(-10px);
+}
+
+.brutalist-card img {
+    border-bottom: 2px solid var(--white);
+    filter: grayscale(100%);
+}
+
+.brutalist-card:hover img {
+    filter: grayscale(0%);
+}
+
+.bg-red {
+    background-color: var(--red-main);
+}
+
+.carousel-text {
+    font-size: 4rem;
+    font-weight: 900;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 992px) {
+    .main-title {
+        font-size: 4rem;
+    }
+    .image-container {
+        margin-top: 50px;
+    }
+}
